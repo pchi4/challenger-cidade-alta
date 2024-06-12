@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Pokemon Card",
+    "bio": "Projeto divertido feito com Vue.js. Possibilita fazer varias consultas de qualquer pokémon.",
+    "img": "https://user-images.githubusercontent.com/84159325/189165805-505c4b8e-dd06-4563-b1f9-1f2a50913bca.png",
+    "link": "https://github.com/pchi4/Pokemon-Cards-Pokedex"
+  },
+  {
+    "title": "Caffeine Army Challenger",
+    "bio": "Projeto full stack no qual foi desenvolvido atráves de um recrutamento.",
+    "img": "https://raw.githubusercontent.com/pchi4/caffeinearmy-frontend/4041f00b304749e2815f49435fc09b85700ce539/public/logo.png",
+    "link": "https://github.com/pchi4/caffeinearmy-infra"
+  }
+]
