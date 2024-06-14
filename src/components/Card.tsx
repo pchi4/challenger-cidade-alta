@@ -46,7 +46,7 @@ export const Card = ({ details }: Props) => {
         href={details.link}
         className="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center my-4"
       >
-        Read more
+        Mais detalhes
         <svg
           className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
           aria-hidden="true"
