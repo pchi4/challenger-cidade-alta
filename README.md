@@ -1,4 +1,6 @@
-# Inicializando o Projeto
+# Desafio Mini Game Cidade Alta
+
+## Inicializando o Projeto
 
 Copiando o projeto para roda na sua máquina: 
 
