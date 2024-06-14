@@ -390,7 +390,7 @@ export const ModalComponent = ({
                   Game Over
                 </h2>
                 <p className="text-center leading-relaxed text-gray-500 dark:text-gray-400">
-                  Ops! Infelizmente você não seguiu as regras e acabou errando.
+                  Ops! Infelizmente você não seguiu as regras e acabou perdendo.
                 </p>
               </>
             )}
