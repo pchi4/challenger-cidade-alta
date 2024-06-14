@@ -35,8 +35,8 @@ export const ModalComponent = ({
   const [isWin, setIsWin] = useState<boolean>(false);
   let intervalId = useRef<string | number | NodeJS.Timer | undefined>();
 
-  const { play: playerWin } = usePlayWin();
-  const { play: playerOver } = usePlayOver();
+  const { onPlayerWin } = usePlayWin();
+  const { onPlayerOver } = usePlayOver();
 
   const [isSuccess, setIsSuccess] = useState({
     first: false,
@@ -59,7 +59,7 @@ export const ModalComponent = ({
   const startTime = useCallback(() => {
     if (progress === 0) {
       setIsFinish(true);
-      playerOver();
+      onPlayerOver();
       return;
     }
     intervalId.current = setInterval(() => {
@@ -82,7 +82,7 @@ export const ModalComponent = ({
           first: true,
         }));
         setIsOver(true);
-        playerOver();
+        onPlayerOver();
         clearInterval(intervalId.current);
 
         return;
@@ -137,7 +137,7 @@ export const ModalComponent = ({
           }));
           setIsWin(true);
           clearInterval(intervalId.current);
-          playerWin();
+          onPlayerWin();
           return;
         }
       });
