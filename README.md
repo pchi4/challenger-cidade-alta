@@ -14,7 +14,7 @@ $ cd challenger-cidade-alta/
 
 ## Rodando a aplicação 
 
-Antes de rodar a aplicação é necessário do node.js instalado em seu ambiente e logo após isso fazer as instalações das dependências com:
+Antes de rodar a aplicação é necessário do node.js instalado em seu ambiente logo após disso, faça as instalações das dependências com:
 
 ```
 npm install
