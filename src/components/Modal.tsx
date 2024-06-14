@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Line } from "rc-progress";
 import { Button, Modal } from "flowbite-react";
 import Confetti from "react-confetti";
+import { usePlayOver, usePlayWin } from "../hooks";
 
 interface Props {
   openModal: boolean;
@@ -34,6 +35,9 @@ export const ModalComponent = ({
   const [isWin, setIsWin] = useState<boolean>(false);
   let intervalId = useRef<string | number | NodeJS.Timer | undefined>();
 
+  const { play: playerWin } = usePlayWin();
+  const { play: playerOver } = usePlayOver();
+
   const [isSuccess, setIsSuccess] = useState({
     first: false,
     second: false,
@@ -55,6 +59,7 @@ export const ModalComponent = ({
   const startTime = useCallback(() => {
     if (progress === 0) {
       setIsFinish(true);
+      playerOver();
       return;
     }
     intervalId.current = setInterval(() => {
@@ -77,6 +82,7 @@ export const ModalComponent = ({
           first: true,
         }));
         setIsOver(true);
+        playerOver();
         clearInterval(intervalId.current);
 
         return;
@@ -131,7 +137,7 @@ export const ModalComponent = ({
           }));
           setIsWin(true);
           clearInterval(intervalId.current);
-
+          playerWin();
           return;
         }
       });
