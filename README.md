@@ -2,7 +2,7 @@
 
 ## Inicializando o Projeto
 
-Copiando o projeto para roda na sua máquina: 
+Copiando o projeto para rodar na sua máquina: 
 
 ```
 git clone https://github.com/pchi4/challenger-cidade-alta
