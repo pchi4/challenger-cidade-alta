@@ -34,6 +34,7 @@ export const ModalComponent = ({
   const alphas = Object.values(randomAlpha.toLocaleLowerCase());
   const [isWin, setIsWin] = useState<boolean>(false);
   let intervalId = useRef<string | number | NodeJS.Timer | undefined>();
+  let idx = useRef(0).current;
 
   const { onPlayerWin } = usePlayWin();
   const { onPlayerOver } = usePlayOver();
@@ -65,7 +66,7 @@ export const ModalComponent = ({
     intervalId.current = setInterval(() => {
       setProgress(progress - 10);
     }, 1000);
-  }, [progress, setIsFinish, setProgress]);
+  }, [onPlayerOver, progress, setIsFinish, setProgress]);
 
   useEffect(() => {
     startTime();
@@ -88,60 +89,79 @@ export const ModalComponent = ({
         return;
       }
 
-      alphas.forEach((value, idx, c) => {
-        if (e.key === c[0].toLocaleLowerCase() && !isSuccess.first) {
-          setIsSuccess((event) => ({
-            ...event,
-            first: true,
-          }));
-          element?.getElementById("code-2")?.focus();
-          return;
-        }
+      // console.log(alphas.indexOf(e.key));
+      console.log(alphas[alphas.indexOf(e.key)]);
 
-        if (e.key === c[1].toLocaleLowerCase() && !isSuccess.second) {
-          setIsSuccess((event) => ({
-            ...event,
-            second: true,
-          }));
-          element?.getElementById("code-3")?.focus();
-          return;
-        }
+      if (
+        e.key === alphas[alphas.indexOf(e.key)].toLocaleLowerCase() &&
+        !isSuccess.first
+      ) {
+        setIsSuccess((event) => ({
+          ...event,
+          first: true,
+        }));
+        element?.getElementById("code-2")?.focus();
+        return;
+      }
 
-        if (e.key === c[2].toLowerCase() && !isSuccess.third) {
-          setIsSuccess((event) => ({
-            ...event,
-            third: true,
-          }));
-          element?.getElementById("code-4")?.focus();
-          return;
-        }
-        if (e.key === c[3].toLowerCase() && !isSuccess.four) {
-          setIsSuccess((event) => ({
-            ...event,
-            four: true,
-          }));
-          element?.getElementById("code-5")?.focus();
-          return;
-        }
-        if (e.key === c[4].toLowerCase() && !isSuccess.five) {
-          setIsSuccess((event) => ({
-            ...event,
-            five: true,
-          }));
-          element?.getElementById("code-6")?.focus();
-          return;
-        }
-        if (e.key === c[5].toLowerCase() && !isSuccess.six) {
-          setIsSuccess((event) => ({
-            ...event,
-            six: true,
-          }));
-          setIsWin(true);
-          clearInterval(intervalId.current);
-          onPlayerWin();
-          return;
-        }
-      });
+      if (
+        e.key === alphas[alphas.indexOf(e.key)].toLocaleLowerCase() &&
+        !isSuccess.second
+      ) {
+        setIsSuccess((event) => ({
+          ...event,
+          second: true,
+        }));
+        element?.getElementById("code-3")?.focus();
+        return;
+      }
+
+      if (
+        e.key === alphas[alphas.indexOf(e.key)].toLowerCase() &&
+        !isSuccess.third
+      ) {
+        setIsSuccess((event) => ({
+          ...event,
+          third: true,
+        }));
+        element?.getElementById("code-4")?.focus();
+        return;
+      }
+      if (
+        e.key === alphas[alphas.indexOf(e.key)].toLowerCase() &&
+        !isSuccess.four
+      ) {
+        setIsSuccess((event) => ({
+          ...event,
+          four: true,
+        }));
+        element?.getElementById("code-5")?.focus();
+        return;
+      }
+      if (
+        e.key === alphas[alphas.indexOf(e.key)].toLowerCase() &&
+        !isSuccess.five
+      ) {
+        setIsSuccess((event) => ({
+          ...event,
+          five: true,
+        }));
+        element?.getElementById("code-6")?.focus();
+        return;
+      }
+      if (
+        e.key === alphas[alphas.indexOf(e.key)].toLowerCase() &&
+        !isSuccess.six
+      ) {
+        setIsSuccess((event) => ({
+          ...event,
+          six: true,
+        }));
+        setIsWin(true);
+        clearInterval(intervalId.current);
+        onPlayerWin();
+        return;
+      }
     }
 
     document.addEventListener("keydown", handleKeyDown);
@@ -157,6 +177,8 @@ export const ModalComponent = ({
     isSuccess.second,
     isSuccess.six,
     isSuccess.third,
+    onPlayerOver,
+    onPlayerWin,
     setIsOver,
     startTime,
   ]);
