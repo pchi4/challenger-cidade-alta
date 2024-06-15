@@ -88,17 +88,6 @@ export const ModalComponent = ({
         return;
       }
 
-      if (e.key !== alphas[0]) {
-        setIsError((event) => ({
-          ...event,
-          first: true,
-        }));
-        setIsOver(true);
-        onPlayerOver();
-        clearInterval(intervalId.current);
-
-        return;
-      }
       alphas.forEach((value, idx, c) => {
         if (e.key === c[0].toLocaleLowerCase() && !isSuccess.first) {
           setIsSuccess((event) => ({
