@@ -34,7 +34,6 @@ export const ModalComponent = ({
   const alphas = Object.values(randomAlpha.toLocaleLowerCase());
   const [isWin, setIsWin] = useState<boolean>(false);
   let intervalId = useRef<string | number | NodeJS.Timer | undefined>();
-  let idx = useRef(0).current;
 
   const { onPlayerWin } = usePlayWin();
   const { onPlayerOver } = usePlayOver();
@@ -58,7 +57,7 @@ export const ModalComponent = ({
   });
 
   const startTime = useCallback(() => {
-    if (progress === 0) {
+    if (progress === 0 && !isSuccess.six) {
       setIsFinish(true);
       onPlayerOver();
       return;
@@ -88,9 +87,6 @@ export const ModalComponent = ({
 
         return;
       }
-
-      // console.log(alphas.indexOf(e.key));
-      console.log(alphas[alphas.indexOf(e.key)]);
 
       if (
         e.key === alphas[alphas.indexOf(e.key)].toLocaleLowerCase() &&
@@ -159,6 +155,7 @@ export const ModalComponent = ({
         }));
         setIsWin(true);
         clearInterval(intervalId.current);
+
         onPlayerWin();
         return;
       }
