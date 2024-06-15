@@ -2,7 +2,7 @@
 
 ## Inicializando o Projeto
 
-Copiando o projeto para roda na sua máquina: 
+Copiando o projeto para rodar na sua máquina: 
 
 ```
 git clone https://github.com/pchi4/challenger-cidade-alta
@@ -14,7 +14,7 @@ $ cd challenger-cidade-alta/
 
 ## Rodando a aplicação 
 
-Antes de rodar a aplicação é necessário do node.js instalado em seu ambiente e logo após isso fazer as instalações das dependências com:
+Antes de rodar a aplicação é necessário do node.js instalado em seu ambiente logo após disso, faça as instalações das dependências com:
 
 ```
 npm install
